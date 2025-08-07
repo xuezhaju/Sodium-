@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cllvvtprdvwpi"]
+
+[ext_resource type="Script" uid="uid://ddy76o3foasge" path="res://Scene/EditBack/edit_back.gd" id="1_l27gj"]
+
+[node name="EditBack" type="ColorRect"]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.458824)
+script = ExtResource("1_l27gj")

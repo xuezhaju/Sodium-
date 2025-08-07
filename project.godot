@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Sodium"
+run/main_scene="uid://u4uojdatm6kp"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
+config/icon="uid://ws03acwhkvia"
+config/windows_native_icon="res://asset/item/icon.ico"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[display]
+
+window/size/transparent=true
+window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+
+[gui]
+
+theme/custom_font="uid://dwn7mi4kkt6ua"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

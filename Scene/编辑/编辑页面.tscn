@@ -1,0 +1,178 @@
+[gd_scene load_steps=6 format=3 uid="uid://u4uojdatm6kp"]
+
+[ext_resource type="Script" uid="uid://d3hhd8ydpmbgg" path="res://Scene/编辑/编辑页面.gd" id="1_78e4e"]
+[ext_resource type="PackedScene" uid="uid://cllvvtprdvwpi" path="res://Scene/EditBack/edit_back.tscn" id="2_nf8o3"]
+[ext_resource type="Script" uid="uid://beg13chds1bl5" path="res://Scene/编辑/text_edit.gd" id="3_62fft"]
+[ext_resource type="Texture2D" uid="uid://bl6jfor4crv06" path="res://asset/item/MusicIcon.png" id="3_o0cl5"]
+[ext_resource type="Script" uid="uid://cv8rudsoc2psy" path="res://Scene/编辑/bgm.gd" id="4_62fft"]
+
+[node name="编辑页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78e4e")
+
+[node name="EditBack" parent="." instance=ExtResource("2_nf8o3")]
+layout_mode = 0
+color = Color(0, 0, 0, 0.341176)
+
+[node name="ColorRect" type="ColorRect" parent="EditBack"]
+custom_minimum_size = Vector2(1152, 50)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 50.0
+color = Color(0.137255, 0.627451, 0.568627, 0.678431)
+
+[node name="边角" type="ColorRect" parent="EditBack"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 59.0
+offset_bottom = 12.0
+scale = Vector2(0.7, 0.7)
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect2" type="ColorRect" parent="EditBack/边角"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+rotation = 1.5708
+
+[node name="边角2" type="ColorRect" parent="EditBack"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 646.0
+offset_right = 1193.0
+offset_bottom = 656.0
+rotation = 3.14159
+scale = Vector2(0.7, 0.7)
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect2" type="ColorRect" parent="EditBack/边角2"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+rotation = 1.5708
+
+[node name="Title" type="Label" parent="EditBack"]
+layout_mode = 0
+offset_left = 1060.0
+offset_top = 6.0
+offset_right = 1180.0
+offset_bottom = 61.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Sodium"
+
+[node name="ShowMode" type="Label" parent="EditBack"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 621.0
+offset_right = 49.0
+offset_bottom = 641.0
+
+[node name="MousePath" type="Label" parent="EditBack"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 621.0
+offset_right = 115.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 15
+
+[node name="Files" type="MenuButton" parent="."]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 11.0
+offset_right = 75.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+text = "文件"
+item_count = 4
+popup/item_0/text = "打开"
+popup/item_0/id = 0
+popup/item_1/text = "保存"
+popup/item_1/id = 1
+popup/item_2/text = "另存为"
+popup/item_2/id = 2
+popup/item_3/text = "退出"
+popup/item_3/id = 3
+
+[node name="Help" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 11.0
+offset_right = 140.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+text = "帮助"
+item_count = 2
+popup/item_0/text = "使用指南(没做)"
+popup/item_0/id = 0
+popup/item_1/text = "关于(没做)"
+popup/item_1/id = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(1050, 500)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 92.0
+offset_right = 1103.0
+offset_bottom = 592.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.991164, 0.991164, 0.991164, 1)
+indent_wrapped_lines = true
+minimap_draw = true
+caret_blink = true
+script = ExtResource("3_62fft")
+
+[node name="SaveMenu" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "保存文件"
+initial_position = 1
+cancel_button_text = "取消"
+access = 2
+
+[node name="OpenMenu" type="FileDialog" parent="."]
+initial_position = 1
+cancel_button_text = "取消"
+access = 2
+
+[node name="QuitConfirmation" type="ConfirmationDialog" parent="."]
+title = "保存提示"
+initial_position = 1
+size = Vector2i(359, 100)
+ok_button_text = "退出"
+dialog_text = "当前文件有未保存的更改，是否要保存？(点击叉号直接退出)"
+cancel_button_text = "现在保存"
+
+[node name="ReturnMain" type="ConfirmationDialog" parent="."]
+title = "返回首页"
+initial_position = 1
+ok_button_text = "确定"
+dialog_text = "还有项目未保存，确定退出吗？"
+cancel_button_text = "取消"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+autoplay = true
+script = ExtResource("4_62fft")
+
+[node name="MusicOpen" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1089.0
+offset_top = 591.0
+offset_right = 1609.0
+offset_bottom = 1111.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_o0cl5")
+flat = true
+
+[connection signal="pressed" from="MusicOpen" to="." method="_on_music_open_pressed"]

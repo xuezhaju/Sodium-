@@ -1,0 +1,426 @@
+[gd_scene load_steps=16 format=3 uid="uid://cnp6oo2iyfr17"]
+
+[ext_resource type="Script" uid="uid://bncok2g8e7lii" path="res://Scene/main/tips.gd" id="1_dohbk"]
+[ext_resource type="Script" uid="uid://dtabqixgg1ds2" path="res://Scene/main/main_ui.gd" id="1_g4p6v"]
+[ext_resource type="PackedScene" uid="uid://cllvvtprdvwpi" path="res://Scene/EditBack/edit_back.tscn" id="2_csw2g"]
+[ext_resource type="Script" uid="uid://b7pfcp7kcuxt5" path="res://Scene/main/title.gd" id="3_jx34o"]
+[ext_resource type="Script" uid="uid://cop6r24qp51u8" path="res://Scene/main/creates.gd" id="3_ytnil"]
+[ext_resource type="Texture2D" uid="uid://5kqgn2d13wio" path="res://asset/item/dark.png" id="4_i08vx"]
+[ext_resource type="Script" uid="uid://jy16hsds63si" path="res://Scene/main/h_slider.gd" id="5_bslka"]
+[ext_resource type="Script" uid="uid://d1aqsddtyelhg" path="res://Scene/main/main_color.gd" id="6_17rtx"]
+[ext_resource type="Script" uid="uid://ci21ltw1u4cc1" path="res://Scene/main/back_color.gd" id="7_unbj4"]
+[ext_resource type="Script" uid="uid://ca0mokxvb05y3" path="res://Scene/main/title_color.gd" id="8_c6jcp"]
+[ext_resource type="Script" uid="uid://7q52gxct6b8m" path="res://Scene/main/main_font_color.gd" id="9_eq60n"]
+[ext_resource type="Script" uid="uid://cacp1murx2sok" path="res://Scene/main/font_size.gd" id="10_82qy8"]
+[ext_resource type="Script" uid="uid://xtp2jjxqr7ll" path="res://Scene/main/save.gd" id="11_eq60n"]
+[ext_resource type="Script" uid="uid://bdgeckdme8n5i" path="res://Scene/main/music_search.gd" id="12_53pdr"]
+[ext_resource type="Script" uid="uid://cuj4ulp5efips" path="res://Scene/main/main_font_search.gd" id="13_ikl6u"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4p6v")
+
+[node name="EditBack" parent="." instance=ExtResource("2_csw2g")]
+layout_mode = 0
+
+[node name="Edit" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 648)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 648.0
+tooltip_text = "进行文件操作"
+
+[node name="List" type="ColorRect" parent="Edit"]
+custom_minimum_size = Vector2(200, 648)
+layout_mode = 2
+color = Color(0.137255, 0.627451, 0.568627, 0.678431)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Edit"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Create" type="Button" parent="Edit/VBoxContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "创建"
+
+[node name="Open" type="Button" parent="Edit/VBoxContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "编辑"
+
+[node name="Setting" type="Button" parent="Edit/VBoxContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "设置"
+
+[node name="边角" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 20.0
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect2" type="ColorRect" parent="边角"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+rotation = 1.5708
+
+[node name="边角2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_left = 1131.0
+offset_top = 634.0
+offset_right = 1181.0
+offset_bottom = 644.0
+rotation = 3.14159
+color = Color(1, 1, 1, 0.588235)
+
+[node name="ColorRect2" type="ColorRect" parent="边角2"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 10.0
+rotation = 1.5708
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 24.0
+offset_right = 158.0
+offset_bottom = 79.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Sodium"
+script = ExtResource("3_jx34o")
+
+[node name="Tips" type="Label" parent="Title"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 72.0
+offset_right = 139.0
+offset_bottom = 97.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "“All in Godot”"
+script = ExtResource("1_dohbk")
+
+[node name="mode_creates" type="CenterContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 0
+offset_left = 275.0
+offset_top = 64.0
+offset_right = 1075.0
+offset_bottom = 564.0
+
+[node name="creates" type="HBoxContainer" parent="mode_creates"]
+layout_mode = 2
+theme_override_constants/separation = 40
+script = ExtResource("3_ytnil")
+
+[node name="txt" type="Button" parent="mode_creates/creates"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "TXT
+文本"
+
+[node name="html" type="Button" parent="mode_creates/creates"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "HTML
+网页"
+
+[node name="markdown" type="Button" parent="mode_creates/creates"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MARKDOWN"
+
+[node name="Settings" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 227.0
+offset_top = 82.0
+offset_right = 1117.0
+offset_bottom = 551.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 0
+offset_top = -25.0
+offset_right = 883.0
+offset_bottom = 428.0
+theme_override_constants/separation = 100
+
+[node name="MusicSetting" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="音量" type="Label" parent="Settings/VBoxContainer/MusicSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "音量"
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/MusicSetting/音量"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 4.0
+offset_right = 154.0
+offset_bottom = 20.0
+script = ExtResource("5_bslka")
+
+[node name="MusicLabel" type="Label" parent="Settings/VBoxContainer/MusicSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "音乐"
+
+[node name="MusicButton" type="CheckButton" parent="Settings/VBoxContainer/MusicSetting/MusicLabel"]
+layout_mode = 2
+offset_left = 41.0
+offset_top = -5.0
+offset_right = 85.0
+offset_bottom = 20.0
+scale = Vector2(1.5, 1.5)
+button_pressed = true
+
+[node name="MusicPath" type="Label" parent="Settings/VBoxContainer/MusicSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "音乐路径"
+
+[node name="LineEdit" type="LineEdit" parent="Settings/VBoxContainer/MusicSetting/MusicPath"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 89.0
+offset_top = -1.0
+offset_right = 142.0
+offset_bottom = 27.0
+caret_blink = true
+
+[node name="ColorSetting" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="MainColor" type="Label" parent="Settings/VBoxContainer/ColorSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "主题色"
+
+[node name="maincolor" type="ColorPickerButton" parent="Settings/VBoxContainer/ColorSetting/MainColor"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.167
+anchor_right = 1.167
+offset_left = -0.0160027
+offset_right = 74.984
+offset_bottom = 28.0
+color = Color(0.145098, 0.478431, 0.439216, 1)
+script = ExtResource("6_17rtx")
+
+[node name="BackColor" type="Label" parent="Settings/VBoxContainer/ColorSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "背景色"
+
+[node name="backcolor" type="ColorPickerButton" parent="Settings/VBoxContainer/ColorSetting/BackColor"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.167
+anchor_right = 1.167
+offset_left = -0.0160027
+offset_right = 74.984
+offset_bottom = 28.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+script = ExtResource("7_unbj4")
+
+[node name="TitleFontColor" type="Label" parent="Settings/VBoxContainer/ColorSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "标题字体颜色"
+
+[node name="TitleColor" type="ColorPickerButton" parent="Settings/VBoxContainer/ColorSetting/TitleFontColor"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.198
+anchor_right = 1.198
+offset_left = -0.00801086
+offset_right = 99.992
+offset_bottom = 25.0
+grow_horizontal = 0
+color = Color(1, 1, 1, 1)
+script = ExtResource("8_c6jcp")
+
+[node name="MainFontColor" type="Label" parent="Settings/VBoxContainer/ColorSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "正文字体颜色"
+
+[node name="MainFontColor" type="ColorPickerButton" parent="Settings/VBoxContainer/ColorSetting/MainFontColor"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 0
+offset_left = 115.0
+offset_right = 215.0
+offset_bottom = 25.0
+color = Color(1, 1, 1, 1)
+script = ExtResource("9_eq60n")
+
+[node name="FontSetting" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="MainFont" type="Label" parent="Settings/VBoxContainer/FontSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "正文字体"
+
+[node name="LineEdit" type="LineEdit" parent="Settings/VBoxContainer/FontSetting/MainFont"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_left = 75.0
+offset_right = 128.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/FontSetting"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.145098, 0.478431, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "字         号"
+
+[node name="FontSize" type="HSlider" parent="Settings/VBoxContainer/FontSetting/Label"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 5.0
+offset_right = 312.0
+offset_bottom = 21.0
+step = 0.1
+script = ExtResource("10_82qy8")
+
+[node name="DL" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.926
+anchor_top = 0.896
+anchor_right = 0.926
+anchor_bottom = 0.896
+offset_left = 26.86
+offset_top = 73.112
+offset_right = 1058.86
+offset_bottom = 1105.11
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("4_i08vx")
+flat = true
+
+[node name="save" type="Button" parent="Settings"]
+layout_mode = 0
+offset_top = 499.0
+offset_right = 106.0
+offset_bottom = 545.0
+theme_override_font_sizes/font_size = 20
+text = "保存设置"
+script = ExtResource("11_eq60n")
+
+[node name="Minimap" type="CheckButton" parent="Settings"]
+layout_mode = 2
+offset_top = 334.0
+offset_right = 883.0
+offset_bottom = 367.0
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "缩略图"
+
+[node name="Line" type="Label" parent="Settings/Minimap"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -80.0
+offset_right = 939.0
+offset_bottom = -19.0
+theme_override_font_sizes/font_size = 50
+text = "---------------------------------------------------------------"
+
+[node name="CodeLight" type="CheckButton" parent="Settings/Minimap"]
+layout_mode = 2
+offset_top = 72.0
+offset_right = 883.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 20
+text = "代码高亮"
+
+[node name="MusicSearch" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+ok_button_text = "Open"
+cancel_button_text = "取消"
+file_mode = 0
+access = 2
+script = ExtResource("12_53pdr")
+
+[node name="Tips" type="ConfirmationDialog" parent="."]
+position = Vector2i(441, 274)
+size = Vector2i(270, 100)
+ok_button_text = "确定"
+dialog_text = "选择的文件格式不符合要求，请选择.mp3, .ogg, .wav, .flag"
+dialog_autowrap = true
+cancel_button_text = "取消"
+
+[node name="MainFontSearch" type="FileDialog" parent="."]
+title = "选择字体文件"
+initial_position = 1
+ok_button_text = "打开"
+cancel_button_text = "取消"
+file_mode = 0
+access = 2
+script = ExtResource("13_ikl6u")
+
+[connection signal="pressed" from="Edit/VBoxContainer/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="Edit/VBoxContainer/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Edit/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="mouse_entered" from="Title/Tips" to="Title/Tips" method="_on_mouse_entered"]
+[connection signal="pressed" from="mode_creates/creates/txt" to="mode_creates/creates" method="_on_txt_pressed"]
+[connection signal="pressed" from="mode_creates/creates/html" to="mode_creates/creates" method="_on_html_pressed"]
+[connection signal="pressed" from="mode_creates/creates/markdown" to="mode_creates/creates" method="_on_markdown_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/MusicSetting/MusicLabel/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="editing_toggled" from="Settings/VBoxContainer/MusicSetting/MusicPath/LineEdit" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="editing_toggled" from="Settings/VBoxContainer/FontSetting/MainFont/LineEdit" to="MainFontSearch" method="_on_line_edit_editing_toggled"]
+[connection signal="pressed" from="Settings/DL" to="." method="_on_dl_pressed"]
+[connection signal="pressed" from="Settings/save" to="Settings/save" method="_on_pressed"]
+[connection signal="canceled" from="MusicSearch" to="." method="_on_music_search_canceled"]
+[connection signal="file_selected" from="MusicSearch" to="MusicSearch" method="_on_file_selected"]
+[connection signal="file_selected" from="MainFontSearch" to="MainFontSearch" method="_on_file_selected"]
