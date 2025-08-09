@@ -142,7 +142,7 @@ cancel_button_text = "取消"
 access = 2
 
 [node name="OpenMenu" type="FileDialog" parent="."]
-title = "Open File"
+title = "Open a File"
 initial_position = 1
 visible = true
 ok_button_text = "Open"

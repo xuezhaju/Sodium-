@@ -84,6 +84,7 @@ func load_settings():
 		title_font_color = Color(1.0, 1.0, 1.0)
 		main_font_color = Color(1.0, 1.0, 1.0)
 	else:
+		is_dark = "user"
 		title_font = config.get_value("Settings", "title_font", "res://asset/SmileySans-Oblique.ttf")
 		main_font = config.get_value("Settings", "main_font", "res://asset/SmileySans-Oblique.ttf")
 		music_path = config.get_value("Settings", "music_path", "res://asset/SmileySans-Oblique.ttf")
