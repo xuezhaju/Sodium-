@@ -401,9 +401,9 @@ dialog_autowrap = true
 cancel_button_text = "取消"
 
 [node name="MainFontSearch" type="FileDialog" parent="."]
-title = "选择字体文件"
+title = "Open a File"
 initial_position = 1
-ok_button_text = "打开"
+ok_button_text = "Open"
 cancel_button_text = "取消"
 file_mode = 0
 access = 2

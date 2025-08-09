@@ -175,6 +175,7 @@ func _update_window_title():
 		title += " *"
 	get_window().title = title
 
+
 func _on_files_item_selected(id: int):
 	match id:
 		0: 
@@ -188,6 +189,7 @@ func _on_files_item_selected(id: int):
 			_quit_application()
 		4:
 			_return_to_main_menu()
+
 
 func _show_color():
 	if Global.is_dark:

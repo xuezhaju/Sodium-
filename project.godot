@@ -25,6 +25,7 @@ Global="*res://Global.gd"
 
 window/size/transparent=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 window/per_pixel_transparency/allowed=true
 
 [gui]
